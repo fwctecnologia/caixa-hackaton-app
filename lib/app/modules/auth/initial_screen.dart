@@ -1,3 +1,4 @@
+import 'package:caixa_hackaton_app/app/modules/trilhas/trilhas_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -68,7 +69,7 @@ class _InitialScreenState extends State<InitialScreen> {
               Container(height: 20),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => AuthScreen());
+                  Get.to(() => TrilhasScreen());
                 },
                 child: Text(
                   'Fazer Login',
