@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CompletarCadastroScreen extends StatefulWidget {
   const CompletarCadastroScreen({super.key});
@@ -89,7 +90,7 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
                     decoration: const BoxDecoration(
                       color: Color(0xFF55A0D6),
                     ),
-                    child: const Padding(
+                    child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 24),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -97,10 +98,9 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
                         children: [
                           Text(
                             "Continuar",
-                            style: TextStyle(
-                              fontFamily: "Roboto Condensed",
+                            style: GoogleFonts.robotoCondensed(
                               fontSize: 24,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                               height: 28 / 24,
                             ),
                             textAlign: TextAlign.left,
@@ -133,7 +133,7 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
                     decoration: const BoxDecoration(
                       color: Color(0xFF55A0D6),
                     ),
-                    child: const Padding(
+                    child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 24),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -141,10 +141,9 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
                         children: [
                           Text(
                             "Receber Prêmio",
-                            style: TextStyle(
-                              fontFamily: "Roboto Condensed",
+                            style: GoogleFonts.robotoCondensed(
                               fontSize: 24,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                               height: 28 / 24,
                             ),
                             textAlign: TextAlign.left,
@@ -172,32 +171,28 @@ class StepOne extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             "Como podemos te chamar?",
-            style: TextStyle(
-              fontFamily: "Roboto Condensed",
+            style: GoogleFonts.robotoCondensed(
               fontSize: 24,
-              fontWeight: FontWeight.w500,
-              height: 28 / 24,
+              fontWeight: FontWeight.w600,
             ),
             textAlign: TextAlign.center,
           ),
           TextFormField(
             autofocus: true,
-            style: const TextStyle(
-              fontFamily: "Roboto Condensed",
-              fontSize: 24,
-              fontWeight: FontWeight.w400,
+            style: GoogleFonts.robotoCondensed(
+              fontSize: 26,
+              fontWeight: FontWeight.w500,
               color: Color(0xffbebebe),
               height: 28 / 24,
             ),
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
                 hintText: "Digite seu nome ou apelido",
                 border: InputBorder.none,
-                hintStyle: TextStyle(
-                  fontFamily: "Roboto Condensed",
-                  fontSize: 24,
-                  fontWeight: FontWeight.w300,
+                hintStyle: GoogleFonts.robotoCondensed(
+                  fontSize: 26,
+                  fontWeight: FontWeight.w400,
                   color: Color(0xffbebebe),
                   height: 28 / 24,
                 )),
@@ -218,11 +213,10 @@ class StepTwo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             "Qual sua data de nascimento?",
-            style: TextStyle(
-              fontFamily: "Roboto Condensed",
-              fontSize: 24,
+            style: GoogleFonts.robotoCondensed(
+              fontSize: 26,
               fontWeight: FontWeight.w500,
               height: 28 / 24,
             ),
@@ -230,19 +224,17 @@ class StepTwo extends StatelessWidget {
           ),
           TextFormField(
             autofocus: true,
-            style: const TextStyle(
-              fontFamily: "Roboto Condensed",
-              fontSize: 24,
-              fontWeight: FontWeight.w400,
+            style: GoogleFonts.robotoCondensed(
+              fontSize: 26,
+              fontWeight: FontWeight.w500,
               color: Color(0xffbebebe),
               height: 28 / 24,
             ),
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
                 hintText: "Digite sua data de nascimento",
                 border: InputBorder.none,
-                hintStyle: TextStyle(
-                  fontFamily: "Roboto Condensed",
-                  fontSize: 24,
+                hintStyle: GoogleFonts.robotoCondensed(
+                  fontSize: 26,
                   fontWeight: FontWeight.w300,
                   color: Color(0xffbebebe),
                   height: 28 / 24,
@@ -259,7 +251,7 @@ class StepThree extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -267,10 +259,9 @@ class StepThree extends StatelessWidget {
           children: [
             Text(
               "O que te traz aqui?",
-              style: TextStyle(
-                fontFamily: "Roboto Condensed",
-                fontSize: 24,
-                fontWeight: FontWeight.w500,
+              style: GoogleFonts.robotoCondensed(
+                fontSize: 28,
+                fontWeight: FontWeight.w600,
                 height: 28 / 24,
               ),
               textAlign: TextAlign.center,
@@ -278,10 +269,9 @@ class StepThree extends StatelessWidget {
             SizedBox(height: 10),
             Text(
               "Selecione pelo menos uma das opções",
-              style: TextStyle(
-                fontFamily: "Roboto Condensed",
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
+              style: GoogleFonts.robotoCondensed(
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
                 height: 23 / 20,
               ),
               textAlign: TextAlign.left,
@@ -312,7 +302,7 @@ class StepFour extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -320,10 +310,9 @@ class StepFour extends StatelessWidget {
           children: [
             Text(
               "Quais desses você já usa?",
-              style: TextStyle(
-                fontFamily: "Roboto Condensed",
-                fontSize: 24,
-                fontWeight: FontWeight.w500,
+              style: GoogleFonts.robotoCondensed(
+                fontSize: 28,
+                fontWeight: FontWeight.w600,
                 height: 28 / 24,
               ),
               textAlign: TextAlign.center,
@@ -331,10 +320,9 @@ class StepFour extends StatelessWidget {
             SizedBox(height: 10),
             Text(
               "Se ainda não usa nenhum, pode passar",
-              style: TextStyle(
-                fontFamily: "Roboto Condensed",
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
+              style: GoogleFonts.robotoCondensed(
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
                 height: 23 / 20,
               ),
               textAlign: TextAlign.left,
@@ -358,7 +346,7 @@ class StepFive extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SingleChildScrollView(
+    return SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -366,10 +354,9 @@ class StepFive extends StatelessWidget {
           children: [
             Text(
               "Quais desses você quer usar?",
-              style: TextStyle(
-                fontFamily: "Roboto Condensed",
-                fontSize: 24,
-                fontWeight: FontWeight.w500,
+              style: GoogleFonts.robotoCondensed(
+                fontSize: 28,
+                fontWeight: FontWeight.w600,
                 height: 28 / 24,
               ),
               textAlign: TextAlign.center,
@@ -377,10 +364,9 @@ class StepFive extends StatelessWidget {
             SizedBox(height: 10),
             Text(
               "Selecione todos os que você se interessa",
-              style: TextStyle(
-                fontFamily: "Roboto Condensed",
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
+              style: GoogleFonts.robotoCondensed(
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
                 height: 23 / 20,
               ),
               textAlign: TextAlign.left,
@@ -409,12 +395,11 @@ class StepSix extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
+          Text(
             "Você ganhou uma Graninha!!!  🤑",
-            style: TextStyle(
-              fontFamily: "Roboto Condensed",
-              fontSize: 24,
-              fontWeight: FontWeight.w500,
+            style: GoogleFonts.robotoCondensed(
+              fontSize: 28,
+              fontWeight: FontWeight.w600,
               height: 28 / 24,
             ),
             textAlign: TextAlign.center,
@@ -425,22 +410,20 @@ class StepSix extends StatelessWidget {
             scale: 0.8,
           ),
           const SizedBox(height: 40),
-          const Text(
+          Text(
             "\"Graninhas” são nossos personagens colecionáveis.",
-            style: TextStyle(
-              fontFamily: "Roboto Condensed",
-              fontSize: 15,
-              fontWeight: FontWeight.w500,
+            style: GoogleFonts.robotoCondensed(
+              fontSize: 17,
+              fontWeight: FontWeight.w600,
             ),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 30),
-          const Text(
+          Text(
             "Ganhe Graninhas ao completar desafios e desbloquear conquistas no App",
-            style: TextStyle(
-              fontFamily: "Roboto Condensed",
-              fontWeight: FontWeight.w500,
-              fontSize: 20,
+            style: GoogleFonts.robotoCondensed(
+              fontWeight: FontWeight.w600,
+              fontSize: 22,
             ),
             textAlign: TextAlign.center,
           )
@@ -494,13 +477,12 @@ class _CheckBoxOptionState extends State<CheckBoxOption> {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(12.0),
                 child: Text(
                   widget.title,
-                  style: TextStyle(
-                    fontFamily: "Roboto Condensed",
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
+                  style: GoogleFonts.robotoCondensed(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w600,
                     color: _checked ? Colors.white : const Color(0xffbebebe),
                   ),
                   textAlign: TextAlign.left,
