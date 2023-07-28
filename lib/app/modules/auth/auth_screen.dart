@@ -1,4 +1,6 @@
+import 'package:caixa_hackaton_app/app/modules/auth/register_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -95,28 +97,42 @@ class _AuthScreenState extends State<AuthScreen> {
                           backgroundColor: Theme.of(context).colorScheme.primary,
                           foregroundColor: Colors.white,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(RegisterScreen());
+                        },
                         child: const Text('Entrar'),
                       ),
                     ),
                     Container(height: 10),
                     Center(
-                      child: RichText(
-                        text: TextSpan(
-                          text: 'Não tem uma conta? ',
-                          style: GoogleFonts.montserrat(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: 'Cadastre-se',
-                              style: GoogleFonts.montserrat(
-                                color: Theme.of(context).colorScheme.primary,
-                                fontWeight: FontWeight.bold,
-                              ),
+                      child: GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return RegisterScreen();
+                              },
                             ),
-                          ],
+                          );
+                        },
+                        child: RichText(
+                          text: TextSpan(
+                            text: 'Não tem uma conta? ',
+                            style: GoogleFonts.montserrat(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: 'Cadastre-se',
+                                style: GoogleFonts.montserrat(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),

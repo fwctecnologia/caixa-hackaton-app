@@ -1,5 +1,6 @@
 import 'package:caixa_hackaton_app/app/modules/auth/auth_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const AuthScreen(),
+      key: Get.key,
     );
   }
 }
