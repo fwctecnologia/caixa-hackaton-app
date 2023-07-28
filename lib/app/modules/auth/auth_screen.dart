@@ -98,7 +98,7 @@ class _AuthScreenState extends State<AuthScreen> {
                           foregroundColor: Colors.white,
                         ),
                         onPressed: () {
-                          Get.to(RegisterScreen());
+                          Get.to(() => RegisterScreen());
                         },
                         child: const Text('Entrar'),
                       ),
@@ -107,14 +107,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     Center(
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) {
-                                return RegisterScreen();
-                              },
-                            ),
-                          );
+                          Get.to(() => RegisterScreen());
                         },
                         child: RichText(
                           text: TextSpan(

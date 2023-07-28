@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const AuthScreen(),
-      key: Get.key,
+      navigatorKey: Get.key,
     );
   }
 }

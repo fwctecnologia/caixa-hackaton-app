@@ -1,6 +1,9 @@
+import 'package:caixa_hackaton_app/app/model/usuario.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'auth_controller.dart';
 import 'auth_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -12,10 +15,11 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   int _currentStep = 0;
+  final Usuario user = Usuario();
+  final authController = AuthController();
 
   @override
   Widget build(BuildContext context) {
-    print("a");
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -38,16 +42,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             backgroundColor: Theme.of(context).colorScheme.primary,
                             foregroundColor: Colors.white,
                           ),
-                          onPressed: () {
-                            if(_currentStep == 2){
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) {
-                                    return AuthScreen();
-                                  },
-                                ),
-                              );
+                          onPressed: () async {
+                            if (_currentStep == 2) {
+                              await authController.signup(user);
+                              Get.to(() => AuthScreen());
+
                               return;
                             }
                             _currentStep += 1;
@@ -68,7 +67,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             foregroundColor: Theme.of(context).colorScheme.primary,
                           ),
                           onPressed: () {
-                            if (_currentStep == 0) return;
+                            if (_currentStep == 0) {
+                              Get.to(()=>AuthScreen());
+                              return;
+                            }
                             _currentStep -= 1;
                             setState(() {});
                           },
@@ -106,6 +108,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Container(height: 40),
                         TextField(
+                          onChanged: (value) {
+                            user.email = value;
+                          },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
@@ -122,6 +127,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Container(height: 10),
                         TextField(
+                          onChanged: (value) {
+                            user.password = value;
+                          },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
@@ -159,6 +167,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Container(height: 40),
                         TextField(
+                          onChanged: (value) {
+                            user.name = value;
+                          },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
@@ -175,6 +186,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Container(height: 10),
                         TextField(
+                          onChanged: (value) {
+                            user.surname = value;
+                          },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
@@ -191,6 +205,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Container(height: 10),
                         TextField(
+                          onChanged: (value) {
+                            user.phone = value;
+                          },
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
@@ -228,7 +245,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Container(height: 40),
                         TextField(
-                          controller: TextEditingController(text: "fulano@gmail.com"),
+                          controller: TextEditingController(text: user.email),
                           readOnly: true,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -246,7 +263,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Container(height: 10),
                         TextField(
-                          controller: TextEditingController(text: "Fulano de tal"),
+                          controller: TextEditingController(text: user.name),
                           readOnly: true,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -264,7 +281,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Container(height: 10),
                         TextField(
-                          controller: TextEditingController(text: "da Silva"),
+                          controller: TextEditingController(text: user.surname),
                           readOnly: true,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
@@ -282,7 +299,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Container(height: 10),
                         TextField(
-                          controller: TextEditingController(text: "(71) 9 9999-9999"),
+                          controller: TextEditingController(text: user.phone),
                           readOnly: true,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
