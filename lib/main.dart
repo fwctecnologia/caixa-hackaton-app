@@ -1,4 +1,4 @@
-import 'package:caixa_hackaton_app/app/modules/auth/auth_screen.dart';
+import 'package:caixa_hackaton_app/app/modules/auth/initial_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         scaffoldBackgroundColor: const Color(0xFF272727),
       ),
-      home: const AuthScreen(),
+      home: const InitialScreen(),
       navigatorKey: Get.key,
     );
   }
