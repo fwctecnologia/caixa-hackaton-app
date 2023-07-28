@@ -108,20 +108,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Container(height: 40),
                         TextField(
-                          onChanged: (value) {
-                            user.email = value;
-                          },
                           decoration: InputDecoration(
+                            floatingLabelBehavior: FloatingLabelBehavior.never,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
                               borderSide: BorderSide.none,
                             ),
-                            labelText: 'E-mail',
+                            labelText: 'Senha',
                             prefixIcon: Icon(
-                              Icons.email,
+                              Icons.lock,
                               color: Colors.grey.withOpacity(0.5),
                             ),
-                            fillColor: Colors.grey[100],
+                            fillColor: Color(0XFFBEBEBE),
                             filled: true,
                           ),
                         ),
