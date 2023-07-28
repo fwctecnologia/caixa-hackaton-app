@@ -38,6 +38,8 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
   }
 
   void onNext() {
+    FocusScope.of(context).unfocus();
+
     pageController.nextPage(
       duration: const Duration(milliseconds: 200),
       curve: Curves.easeOut,
@@ -75,6 +77,7 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
                   StepThree(),
                   StepFour(),
                   StepFive(),
+                  StepSix(),
                 ],
               ),
             ),
@@ -121,11 +124,36 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
               // ),
             ],
             if (currentPage == 5) ...[
-              // CustomElevatedButton(
-              //   text: "COMECE A USAR",
-              //   onPressed: onSkip,
-              // ),
-              const SizedBox(height: 48),
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pop();
+                },
+                child: Container(
+                    height: 65,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFF55A0D6),
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 24),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Receber Prêmio",
+                            style: TextStyle(
+                              fontFamily: "Roboto Condensed",
+                              fontSize: 24,
+                              fontWeight: FontWeight.w500,
+                              height: 28 / 24,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                          Icon(Icons.arrow_forward)
+                        ],
+                      ),
+                    )),
+              )
             ],
           ],
         ),
@@ -366,6 +394,57 @@ class StepFive extends StatelessWidget {
             CheckBoxOption(title: "Linhas de crédito"),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class StepSix extends StatelessWidget {
+  const StepSix({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Text(
+            "Você ganhou uma Graninha!!!  🤑",
+            style: TextStyle(
+              fontFamily: "Roboto Condensed",
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+              height: 28 / 24,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 30),
+          Image.asset(
+            "assets/motivacional.png",
+            scale: 0.8,
+          ),
+          const SizedBox(height: 40),
+          const Text(
+            "\"Graninhas” são nossos personagens colecionáveis.",
+            style: TextStyle(
+              fontFamily: "Roboto Condensed",
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(height: 30),
+          const Text(
+            "Ganhe Graninhas ao completar desafios e desbloquear conquistas no App",
+            style: TextStyle(
+              fontFamily: "Roboto Condensed",
+              fontWeight: FontWeight.w500,
+              fontSize: 20,
+            ),
+            textAlign: TextAlign.center,
+          )
+        ],
       ),
     );
   }
