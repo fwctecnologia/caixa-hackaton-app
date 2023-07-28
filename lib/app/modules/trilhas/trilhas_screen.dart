@@ -1,7 +1,7 @@
+import 'package:caixa_hackaton_app/app/modules/execucao_trilha/execucao_trilha.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class TrilhasScreen extends StatefulWidget {
   const TrilhasScreen({super.key});
@@ -19,6 +19,7 @@ class _TrilhasScreenState extends State<TrilhasScreen> {
         leading: Image.asset('assets/chevron_right.png'),
         actions: [
           Image.asset('assets/medal.png'),
+          Container(width: 20),
         ],
       ),
       body: SafeArea(
@@ -147,7 +148,11 @@ Widget trilhaCard({
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(
+                      ()=> ExecucaoTrilhaScreen()
+                  );
+                },
                 child: Text(
                   'Escolher',
                   style: GoogleFonts.robotoCondensed(
