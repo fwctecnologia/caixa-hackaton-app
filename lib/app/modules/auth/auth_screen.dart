@@ -38,7 +38,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         height: 1.2,
                         fontWeight: FontWeight.bold,
                         fontSize: 34,
-                        color: Colors.blue,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
                     Container(height: 40),
@@ -82,9 +82,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         onPressed: () {},
                         child: Text(
                           'Esqueci minha senha',
-                          style: GoogleFonts.montserrat(
-                            fontWeight: FontWeight.normal
-                          ),
+                          style: GoogleFonts.montserrat(fontWeight: FontWeight.normal),
                         ),
                       ),
                     ),
@@ -94,7 +92,7 @@ class _AuthScreenState extends State<AuthScreen> {
                       height: 50,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue,
+                          backgroundColor: Theme.of(context).colorScheme.primary,
                           foregroundColor: Colors.white,
                         ),
                         onPressed: () {},
@@ -106,11 +104,17 @@ class _AuthScreenState extends State<AuthScreen> {
                       child: RichText(
                         text: TextSpan(
                           text: 'Não tem uma conta? ',
-                          style: GoogleFonts.montserrat(color: Colors.black, fontWeight: FontWeight.bold),
+                          style: GoogleFonts.montserrat(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
                           children: [
                             TextSpan(
                               text: 'Cadastre-se',
-                              style: GoogleFonts.montserrat(color: Colors.blue, fontWeight: FontWeight.bold),
+                              style: GoogleFonts.montserrat(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ],
                         ),
