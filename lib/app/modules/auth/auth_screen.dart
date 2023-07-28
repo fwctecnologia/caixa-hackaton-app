@@ -1,4 +1,5 @@
 import 'package:caixa_hackaton_app/app/modules/auth/register_screen.dart';
+import 'package:caixa_hackaton_app/app/modules/completar_cadastro/completar_cadastro_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,11 +34,10 @@ class _AuthScreenState extends State<AuthScreen> {
                     Text(
                       'Escolha como criar sua conta!',
                       style: GoogleFonts.montserrat(
-                        height: 0.8,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: Colors.white
-                      ),
+                          height: 0.8,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Colors.white),
                     ),
                     Text(
                       'Caixa JOVEM',
@@ -95,24 +95,26 @@ class _AuthScreenState extends State<AuthScreen> {
                           color: Color(0xFF505050),
                           borderRadius: BorderRadius.circular(8),
                         ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image.asset(
-                              'assets/caixa.png',
-                              width: 40,
-                              height: 40,
-                            ),
-                            Container(width: 20),
-                            Text(
-                              "Usar minha conta caixa",
-                              style: GoogleFonts.robotoCondensed(
-                                fontSize: 18,
-                                color: Color(0XFFBEBEBE),
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                          ],
+                        // labelText: 'Senha',
+                        // prefixIcon: Icon(
+                        //   Icons.lock,
+                        //   color: Colors.grey.withOpacity(0.5),
+                        // ),
+                        // fillColor: Colors.grey[100],
+                        // filled: true,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          foregroundColor: Colors.blue,
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          'Esqueci minha senha',
+                          style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.normal),
                         ),
                       ),
                     ),
@@ -130,20 +132,21 @@ class _AuthScreenState extends State<AuthScreen> {
                     //   ),
                     // ),
                     Expanded(child: Container()),
-                    // SizedBox(
-                    //   width: double.infinity,
-                    //   height: 50,
-                    //   child: ElevatedButton(
-                    //     style: ElevatedButton.styleFrom(
-                    //       backgroundColor: Theme.of(context).colorScheme.primary,
-                    //       foregroundColor: Colors.white,
-                    //     ),
-                    //     onPressed: () {
-                    //       Get.to(() => RegisterScreen());
-                    //     },
-                    //     child: const Text('Entrar'),
-                    //   ),
-                    // ),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              Theme.of(context).colorScheme.primary,
+                          foregroundColor: Colors.white,
+                        ),
+                        onPressed: () {
+                          Get.to(() => CompletarCadastroScreen());
+                        },
+                        child: const Text('Entrar'),
+                      ),
+                    ),
                     Container(height: 10),
                     Center(
                       child: GestureDetector(
@@ -160,7 +163,6 @@ class _AuthScreenState extends State<AuthScreen> {
                             children: [
                               TextSpan(
                                 text: 'Faça login',
-
                                 style: GoogleFonts.montserrat(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
