@@ -142,7 +142,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(() => AuthScreen());
+                        Get.to(() => CompletarCadastroScreen());
                       },
                       child: RichText(
                         text: TextSpan(

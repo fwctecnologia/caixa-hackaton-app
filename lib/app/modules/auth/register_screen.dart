@@ -52,6 +52,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         GoogleFonts.robotoCondensed(fontWeight: FontWeight.w700, fontSize: 18, color: Color(0XFFBEBEBE)),
                     prefixIcon: Image.asset("assets/mail.png"),
                     suffixIcon: Container(width: 20),
+                    isDense: true,
+                    prefixIconConstraints: BoxConstraints(
+                        minWidth:65,
+                        maxHeight: 35
+                    ),
                     fillColor: Color(0xFF505050),
                     filled: true,
                   ),
@@ -67,7 +72,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       borderSide: BorderSide.none,
                     ),
                     hintText: 'Escolha uma senha',
-                    hintStyle:
+                    isDense: true,
+                    prefixIconConstraints: BoxConstraints(
+                      minWidth:65,
+                      maxHeight: 35
+                    ),                    hintStyle:
                         GoogleFonts.robotoCondensed(fontWeight: FontWeight.w700, fontSize: 18, color: Color(0XFFBEBEBE)),
                     prefixIcon: Image.asset("assets/lock.png"),
                     suffixIcon: Container(width: 20),
@@ -89,7 +98,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     hintStyle:
                         GoogleFonts.robotoCondensed(fontWeight: FontWeight.w700, fontSize: 18, color: Color(0XFFBEBEBE)),
                     prefixIcon: Image.asset("assets/lock.png"),
-                    suffixIcon: Container(width: 20),
+                    suffixIcon: Container(width: 20), isDense: true,
+                    prefixIconConstraints: BoxConstraints(
+                        minWidth:65,
+                        maxHeight: 35
+                    ),
                     fillColor: Color(0xFF505050),
                     filled: true,
                   ),
