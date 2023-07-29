@@ -1,3 +1,4 @@
+import 'package:caixa_hackaton_app/app/modules/categorizacao/categorizacao_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/lancamento/lancamento_screen.dart';
 import 'package:flutter/material.dart';
@@ -95,30 +96,35 @@ class ResumoSaldoWidget extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Saldo Geral",
-                          style: GoogleFonts.robotoCondensed(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            height: 19 / 16,
-                            color: const Color(0xffdedede),
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(() => CategorizacaoScreen());
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Saldo Geral",
+                            style: GoogleFonts.robotoCondensed(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              height: 19 / 16,
+                              color: const Color(0xffdedede),
+                            ),
+                            textAlign: TextAlign.left,
                           ),
-                          textAlign: TextAlign.left,
-                        ),
-                        Text(
-                          "R\$ 1.776,12",
-                          style: GoogleFonts.robotoCondensed(
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                            height: 23 / 20,
-                            color: Colors.white,
-                          ),
-                          textAlign: TextAlign.left,
-                        )
-                      ],
+                          Text(
+                            "R\$ 1.776,12",
+                            style: GoogleFonts.robotoCondensed(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                              height: 23 / 20,
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.left,
+                          )
+                        ],
+                      ),
                     ),
                   ],
                 ),
