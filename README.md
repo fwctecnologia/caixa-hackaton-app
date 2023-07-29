@@ -1,9 +1,9 @@
 # Hackathon CPBR15 - CAIXA & VISA
 
-
-![Blue APP](assets/1.png)
+![Blue APP](assets/r1.png)
 
 ## Soluções do Blue
+
 Criamos o Blue, um aplicativo que será totalmente integrado ao atual app da Caixa Econômica, que atenderá o anseio por agilidade e dinamismo dos jovens
 
 - Acesso facilitado a produtos Caixa, como contas, cartões e linhas de crédito
@@ -15,6 +15,5 @@ Criamos o Blue, um aplicativo que será totalmente integrado ao atual app da Cai
 ## Ajudando o jovem a poupar com gameficação
 
 ## Sobre Nós
+
 A equipe da [FWC Tecnologia](https://fwctecnologia.com/) é especialista em desenvolvimento de aplicativos utilizando o framework Flutter e NodeJS, um dos mais populares do mercado.
-
-
