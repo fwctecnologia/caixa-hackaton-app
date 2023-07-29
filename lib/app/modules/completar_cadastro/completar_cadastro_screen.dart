@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../graninha/nova_graninha_screen.dart';
+
 class CompletarCadastroScreen extends StatefulWidget {
   const CompletarCadastroScreen({super.key});
 
@@ -127,7 +129,11 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
             if (currentPage == 5) ...[
               InkWell(
                 onTap: () {
-                  Navigator.of(context).pop();
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const NovaGraninhaScreen(),
+                    ),
+                  );
                 },
                 child: Container(
                     height: 65,
