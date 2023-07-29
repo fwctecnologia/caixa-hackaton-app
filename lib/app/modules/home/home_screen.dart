@@ -1,4 +1,6 @@
+import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -127,16 +129,23 @@ class ResumoSaldoWidget extends StatelessWidget {
                       ),
                       textAlign: TextAlign.left,
                     ),
-                    Text(
-                      "Definir meta",
-                      style: GoogleFonts.robotoCondensed(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        height: 23 / 20,
-                        color: Colors.white,
-                        decoration: TextDecoration.underline,
+                    GestureDetector(
+                      onTap: (){
+                        Get.to(
+                          () => const ConquistasScreen(),
+                        );
+                      },
+                      child: Text(
+                        "Definir meta",
+                        style: GoogleFonts.robotoCondensed(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          height: 23 / 20,
+                          color: Colors.white,
+                          decoration: TextDecoration.underline,
+                        ),
+                        textAlign: TextAlign.left,
                       ),
-                      textAlign: TextAlign.left,
                     )
                   ],
                 ),
