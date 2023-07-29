@@ -57,13 +57,14 @@ class _ExecucaoTrilhaScreenState extends State<ExecucaoTrilhaScreen> {
         title: Text(
           'Aprendizado Financeiro',
           style: GoogleFonts.robotoCondensed(
-            fontSize: 20,
-            fontWeight: FontWeight.w500,
-            color: Colors.white,
-            letterSpacing: -1
-          ),
+              fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white, letterSpacing: -1),
         ),
-        leading: Image.asset('assets/chevron_right.png'),
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Image.asset('assets/chevron_right.png'),
+        ),
         actions: [
           Image.asset('assets/medal.png'),
           Container(width: 20),
@@ -125,14 +126,14 @@ class _ExecucaoTrilhaScreenState extends State<ExecucaoTrilhaScreen> {
                     checkedNumber: elevenChecked,
                   ),
                   FinishStep(
-                    onTap: (int a){},
+                    onTap: (int a) {},
                     qtdAcertos: totalAcertos,
                   )
                 ],
               ),
             ),
             Visibility(
-              visible: (currentPage??0)<11,
+              visible: (currentPage ?? 0) < 11,
               child: InkWell(
                 onTap: () {
                   if (currentPage == 8 && nineChecked == null ||
@@ -974,7 +975,7 @@ class FinishStep extends StatelessWidget {
           children: [
             Text(
               "APROVADO",
-              style: GoogleFonts.robotoCondensed(fontSize: 32, fontWeight: FontWeight.w700,color: Colors.blue),
+              style: GoogleFonts.robotoCondensed(fontSize: 32, fontWeight: FontWeight.w700, color: Colors.blue),
             ),
             Image.asset("assets/result.png"),
             Row(
@@ -982,7 +983,7 @@ class FinishStep extends StatelessWidget {
               children: [
                 Text(
                   qtdAcertos.toString(),
-                  style: GoogleFonts.robotoCondensed(fontSize: 64, fontWeight: FontWeight.w700,color: Colors.blue),
+                  style: GoogleFonts.robotoCondensed(fontSize: 64, fontWeight: FontWeight.w700, color: Colors.blue),
                 ),
                 Text(
                   " / 3",

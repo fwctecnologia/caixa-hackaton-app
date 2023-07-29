@@ -17,7 +17,12 @@ class _TrilhasScreenState extends State<TrilhasScreen> {
     return Scaffold(
       appBar: AppBar(
         forceMaterialTransparency: true,
-        leading: Image.asset('assets/chevron_right.png'),
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Image.asset('assets/chevron_right.png'),
+        ),
         actions: [
           GestureDetector(
             onTap: (){

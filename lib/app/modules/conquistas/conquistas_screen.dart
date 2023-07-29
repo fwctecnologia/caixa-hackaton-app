@@ -14,7 +14,12 @@ class _ConquistasScreenState extends State<ConquistasScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Image.asset('assets/chevron_left.png'),
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Image.asset('assets/chevron_left.png'),
+        ),
         centerTitle: true,
         forceMaterialTransparency: true,
         title: const Text(
@@ -73,8 +78,8 @@ class _ConquistasScreenState extends State<ConquistasScreen> {
             card('Investidor Iniciante', 'Faça seu primeiro investimento', '50', 'Conquistado em 29/07/2023 às 13:05',
                 'assets/chart.png'),
             Container(height: 10),
-            card('Aprendedor Nato', 'Termine sua primeira trilha de aprendizado', '40', 'Conquistado em 28/07/2023 às 14:12',
-                'assets/graduacao.png'),
+            card('Aprendedor Nato', 'Termine sua primeira trilha de aprendizado', '40',
+                'Conquistado em 28/07/2023 às 14:12', 'assets/graduacao.png'),
             Container(height: 10),
             card('Um bom começo', 'Concluiu os primeiros passos', '60', 'Conquistado em 27/07/2023 às 19:56',
                 'assets/verificado.png'),
@@ -145,6 +150,7 @@ Widget card(titulo, descricao, pontuacao, infoConquista, imgSrc) {
             ),
           ],
         ),
+        Container(height: 5),
         Divider(
           color: Colors.white.withOpacity(0.5),
           height: 0.2,

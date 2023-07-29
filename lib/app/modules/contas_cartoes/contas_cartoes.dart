@@ -15,7 +15,7 @@ class _ContasCartoesScreenState extends State<ContasCartoesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar:  Container(
+      bottomNavigationBar: Container(
         margin: EdgeInsets.all(16),
         width: double.infinity,
         height: 50,
@@ -41,7 +41,12 @@ class _ContasCartoesScreenState extends State<ContasCartoesScreen> {
       ),
       appBar: AppBar(
         forceMaterialTransparency: true,
-        leading: Image.asset('assets/chevron_right.png'),
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Image.asset('assets/chevron_right.png'),
+        ),
         actions: [
           Image.asset('assets/medal.png'),
           Container(width: 20),
@@ -90,10 +95,10 @@ class _ContasCartoesScreenState extends State<ContasCartoesScreen> {
   }
 }
 
-Widget card(title, value,description) {
+Widget card(title, value, description) {
   return Container(
     width: MediaQuery.of(Get.context!).size.width,
-    padding: EdgeInsets.all(8).copyWith(left: 12,right: 12),
+    padding: EdgeInsets.all(8).copyWith(left: 12, right: 12),
     decoration: BoxDecoration(
       color: Color(0xFF505050),
       borderRadius: BorderRadius.circular(8),
