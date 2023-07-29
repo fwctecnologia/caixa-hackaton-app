@@ -1,5 +1,6 @@
 import 'package:caixa_hackaton_app/app/modules/auth/register_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/completar_cadastro/completar_cadastro_screen.dart';
+import 'package:caixa_hackaton_app/app/modules/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -145,7 +146,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   Center(
                     child: GestureDetector(
                       onTap: () {
-                        Get.to(() => CompletarCadastroScreen());
+                        Get.to(() => HomeScreen());
                       },
                       child: RichText(
                         text: TextSpan(
