@@ -1,3 +1,4 @@
+import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,45 +16,44 @@ class _CategorizacaoScreenState extends State<CategorizacaoScreen> {
       "nome": "Jogos",
       "icone": "assets/controle.png",
       "cor": Color(0xFF55A0D6),
-      "valor":1,
+      "valor": 1,
       "total": "R\$ 859,30"
     },
     {
       "nome": "Comida",
       "icone": "assets/burguer.png",
       "cor": Color(0xFFD41E24),
-      "valor":2,
+      "valor": 2,
       "total": "R\$ 859,30"
     },
     {
       "nome": "Pet",
       "icone": "assets/1.png",
       "cor": Color(0xFF55A0D6),
-      "valor":3,
+      "valor": 3,
       "total": "R\$ 859,30"
     },
     {
       "nome": "Lazer",
       "icone": "assets/2.png",
       "cor": Color(0xFF55A0D6),
-      "valor":4,
+      "valor": 4,
       "total": "R\$ 859,30"
     },
     {
       "nome": "Moradia",
       "icone": "assets/3.png",
       "cor": Color(0xFFDAA83C),
-      "valor":5,
+      "valor": 5,
       "total": "R\$ 859,30"
     },
     {
       "nome": "Roupas",
       "icone": "assets/4.png",
       "cor": Color(0xFF55A0D6),
-      "valor":6,
+      "valor": 6,
       "total": "R\$ 859,30"
     },
-
   ];
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,14 @@ class _CategorizacaoScreenState extends State<CategorizacaoScreen> {
           child: Image.asset('assets/chevron_right.png'),
         ),
         actions: [
-          Image.asset('assets/medal.png'),
+          GestureDetector(
+              onTap: () {
+                Get.to(() => ConquistasScreen());
+              },
+              child: Image.asset(
+                'assets/medal_4.png',
+                scale: 1.9,
+              )),
           Container(width: 20),
         ],
       ),
@@ -145,7 +152,6 @@ class _CategorizacaoScreenState extends State<CategorizacaoScreen> {
               'Compra Caixa Xovem',
               '29/07/2023',
               '- R\$ 253,50',
-
             ),
             Container(height: 10),
             cardMovimentacoes(
@@ -154,7 +160,6 @@ class _CategorizacaoScreenState extends State<CategorizacaoScreen> {
               'Cartão Caixa Xovem',
               '29/07/2023',
               '- R\$ 12,80',
-
             ),
             Container(height: 20),
             Text(
@@ -169,7 +174,7 @@ class _CategorizacaoScreenState extends State<CategorizacaoScreen> {
             Expanded(
               child: GridView.count(
                 crossAxisCount: 2,
-                childAspectRatio: (2.2/ 1),
+                childAspectRatio: (2.2 / 1),
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 children: List.generate(
@@ -224,17 +229,26 @@ Widget cardMovimentacoes(
                       titulo,
                       overflow: TextOverflow.ellipsis,
                       style: GoogleFonts.robotoCondensed(
-                          fontWeight: FontWeight.w500, fontSize: 16, color: Colors.white, letterSpacing: -1),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: Colors.white,
+                          letterSpacing: -1),
                     ),
                     Text(
                       subtitulo,
                       style: GoogleFonts.robotoCondensed(
-                          fontWeight: FontWeight.w500, fontSize: 16, color: Colors.white, letterSpacing: -1),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: Colors.white,
+                          letterSpacing: -1),
                     ),
                     Text(
                       'R\$ ${saldo}',
                       style: GoogleFonts.robotoCondensed(
-                          fontWeight: FontWeight.w500, fontSize: 16, color: Colors.white, letterSpacing: -1),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: Colors.white,
+                          letterSpacing: -1),
                     ),
                   ],
                 ),
@@ -269,7 +283,7 @@ Widget cardCategoria(
       color: Color(0XFF505050),
     ),
     alignment: Alignment.center,
-    child:Row(
+    child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -289,40 +303,38 @@ Widget cardCategoria(
                 color: Colors.white,
               ),
             ),
-
           ],
         ),
-       SizedBox(width: 10),
-       Column(
-         mainAxisAlignment: MainAxisAlignment.center,
-         crossAxisAlignment: CrossAxisAlignment.start,
-         children: [
-           Text(
-             total,
-             style: GoogleFonts.robotoCondensed(
-               fontWeight: FontWeight.w500,
-               fontSize: 20,
-               color: Colors.white,
-             ),
-           ),
-           SizedBox(height:5),
-           ClipRRect(
-             borderRadius: BorderRadius.circular(8),
-             child: Container(
-               width: 70,
-               child:  LinearProgressIndicator(
-                 minHeight: 8,
-                 backgroundColor: Colors.white,
-                 valueColor: AlwaysStoppedAnimation<Color>(
-                   cor,
-                 ),
-                 value: 0.5,
-               ),
-             ),
-           ),
-         ],
-       )
-
+        SizedBox(width: 10),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              total,
+              style: GoogleFonts.robotoCondensed(
+                fontWeight: FontWeight.w500,
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(height: 5),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Container(
+                width: 70,
+                child: LinearProgressIndicator(
+                  minHeight: 8,
+                  backgroundColor: Colors.white,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    cor,
+                  ),
+                  value: 0.5,
+                ),
+              ),
+            ),
+          ],
+        )
       ],
     ),
   );
