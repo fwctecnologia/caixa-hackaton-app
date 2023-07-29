@@ -1,4 +1,5 @@
 import 'package:caixa_hackaton_app/app/modules/home/home_screen.dart';
+import 'package:caixa_hackaton_app/app/modules/lancamento/lancamento_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/tesouros/tesouro_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -250,7 +251,7 @@ class _BottomBarState extends State<BottomBar> {
             // TODO: nova despesa
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) => const HomeScreen(),
+                builder: (context) => const LancamentoScreen(),
               ),
             );
           },

@@ -1,3 +1,4 @@
+import 'package:caixa_hackaton_app/app/modules/execucao_trilha/execucao_trilha.dart';
 import 'package:caixa_hackaton_app/app/modules/lancamento/lancamento_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/contas_cartoes/contas_cartoes.dart';
 import 'package:caixa_hackaton_app/app/modules/tesouros/sala_tesouro_screen.dart';
@@ -432,36 +433,41 @@ class AssuntosWidget extends StatelessWidget {
     required String iconName,
     double scale = 1,
   }) {
-    return SizedBox(
-      child: Column(
-        children: [
-          Container(
-            width: 75,
-            height: 75,
-            decoration: BoxDecoration(
-              color: const Color(0xff505050),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(
-                "assets/$iconName.png",
-                scale: scale,
+    return GestureDetector(
+      onTap: () {
+        Get.to(() => const ExecucaoTrilhaScreen());
+      },
+      child: SizedBox(
+        child: Column(
+          children: [
+            Container(
+              width: 75,
+              height: 75,
+              decoration: BoxDecoration(
+                color: const Color(0xff505050),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  "assets/$iconName.png",
+                  scale: scale,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            label,
-            style: GoogleFonts.robotoCondensed(
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              height: 19 / 16,
-              color: Colors.white,
-            ),
-            textAlign: TextAlign.left,
-          )
-        ],
+            const SizedBox(height: 5),
+            Text(
+              label,
+              style: GoogleFonts.robotoCondensed(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                height: 19 / 16,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.left,
+            )
+          ],
+        ),
       ),
     );
   }
