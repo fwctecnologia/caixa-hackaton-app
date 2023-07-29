@@ -191,7 +191,7 @@ class StepOne extends StatelessWidget {
                 hintText: "Digite seu nome ou apelido",
                 border: InputBorder.none,
                 hintStyle: GoogleFonts.robotoCondensed(
-                  fontSize: 26,
+                  fontSize: 24,
                   fontWeight: FontWeight.w400,
                   color: Color(0xffbebebe),
                   height: 28 / 24,
@@ -216,7 +216,7 @@ class StepTwo extends StatelessWidget {
           Text(
             "Qual sua data de nascimento?",
             style: GoogleFonts.robotoCondensed(
-              fontSize: 26,
+              fontSize: 24,
               fontWeight: FontWeight.w500,
               height: 28 / 24,
             ),
@@ -225,7 +225,7 @@ class StepTwo extends StatelessWidget {
           TextFormField(
             autofocus: true,
             style: GoogleFonts.robotoCondensed(
-              fontSize: 26,
+              fontSize: 24,
               fontWeight: FontWeight.w500,
               color: Color(0xffbebebe),
               height: 28 / 24,
@@ -234,7 +234,7 @@ class StepTwo extends StatelessWidget {
                 hintText: "Digite sua data de nascimento",
                 border: InputBorder.none,
                 hintStyle: GoogleFonts.robotoCondensed(
-                  fontSize: 26,
+                  fontSize: 24,
                   fontWeight: FontWeight.w300,
                   color: Color(0xffbebebe),
                   height: 28 / 24,
@@ -260,7 +260,7 @@ class StepThree extends StatelessWidget {
             Text(
               "O que te traz aqui?",
               style: GoogleFonts.robotoCondensed(
-                fontSize: 28,
+                fontSize: 24,
                 fontWeight: FontWeight.w600,
                 height: 28 / 24,
               ),
@@ -270,7 +270,7 @@ class StepThree extends StatelessWidget {
             Text(
               "Selecione pelo menos uma das opções",
               style: GoogleFonts.robotoCondensed(
-                fontSize: 22,
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
                 height: 23 / 20,
               ),
@@ -311,7 +311,7 @@ class StepFour extends StatelessWidget {
             Text(
               "Quais desses você já usa?",
               style: GoogleFonts.robotoCondensed(
-                fontSize: 28,
+                fontSize: 24,
                 fontWeight: FontWeight.w600,
                 height: 28 / 24,
               ),
@@ -321,7 +321,7 @@ class StepFour extends StatelessWidget {
             Text(
               "Se ainda não usa nenhum, pode passar",
               style: GoogleFonts.robotoCondensed(
-                fontSize: 22,
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
                 height: 23 / 20,
               ),
@@ -355,7 +355,7 @@ class StepFive extends StatelessWidget {
             Text(
               "Quais desses você quer usar?",
               style: GoogleFonts.robotoCondensed(
-                fontSize: 28,
+                fontSize: 24,
                 fontWeight: FontWeight.w600,
                 height: 28 / 24,
               ),
@@ -365,7 +365,7 @@ class StepFive extends StatelessWidget {
             Text(
               "Selecione todos os que você se interessa",
               style: GoogleFonts.robotoCondensed(
-                fontSize: 22,
+                fontSize: 20,
                 fontWeight: FontWeight.w600,
                 height: 23 / 20,
               ),
@@ -398,7 +398,7 @@ class StepSix extends StatelessWidget {
           Text(
             "Você ganhou uma Graninha!!!  🤑",
             style: GoogleFonts.robotoCondensed(
-              fontSize: 28,
+              fontSize: 24,
               fontWeight: FontWeight.w600,
               height: 28 / 24,
             ),
@@ -423,7 +423,7 @@ class StepSix extends StatelessWidget {
             "Ganhe Graninhas ao completar desafios e desbloquear conquistas no App",
             style: GoogleFonts.robotoCondensed(
               fontWeight: FontWeight.w600,
-              fontSize: 22,
+              fontSize: 20,
             ),
             textAlign: TextAlign.center,
           )
@@ -477,11 +477,11 @@ class _CheckBoxOptionState extends State<CheckBoxOption> {
             ),
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Text(
                   widget.title,
                   style: GoogleFonts.robotoCondensed(
-                    fontSize: 22,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600,
                     color: _checked ? Colors.white : const Color(0xffbebebe),
                   ),

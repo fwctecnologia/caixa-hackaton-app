@@ -19,29 +19,29 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Image.asset('assets/drawer.png'),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 10),
-            Text(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 20),
+            child: Text(
               "Olá, Xovem Novin",
               style: GoogleFonts.robotoCondensed(
-                fontSize: 25,
+                fontSize: 24,
                 fontWeight: FontWeight.w600,
               ),
             ),
-            const SizedBox(height: 15),
-            const ResumoSaldoWidget(),
-            const SizedBox(height: 15),
-            const PassosWidget(),
-            const SizedBox(height: 15),
-            const AssuntosWidget(),
-            const SizedBox(height: 15),
-            const SalaDoTesouro(),
-          ],
-        ),
+          ),
+          const SizedBox(height: 15),
+          const ResumoSaldoWidget(),
+          const SizedBox(height: 15),
+          const PassosWidget(),
+          const SizedBox(height: 15),
+          const AssuntosWidget(),
+        ],
       ),
     );
   }
@@ -53,6 +53,7 @@ class ResumoSaldoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       width: double.infinity,
       height: 120,
       decoration: const BoxDecoration(
@@ -92,7 +93,7 @@ class ResumoSaldoWidget extends StatelessWidget {
                         Text(
                           "Saldo Geral",
                           style: GoogleFonts.robotoCondensed(
-                            fontSize: 19,
+                            fontSize: 16,
                             fontWeight: FontWeight.w500,
                             height: 19 / 16,
                             color: const Color(0xffdedede),
@@ -100,9 +101,9 @@ class ResumoSaldoWidget extends StatelessWidget {
                           textAlign: TextAlign.left,
                         ),
                         Text(
-                          "R\$ 0,00",
+                          "R\$ 1.776,12",
                           style: GoogleFonts.robotoCondensed(
-                            fontSize: 23,
+                            fontSize: 20,
                             fontWeight: FontWeight.w500,
                             height: 23 / 20,
                             color: Colors.white,
@@ -119,7 +120,7 @@ class ResumoSaldoWidget extends StatelessWidget {
                     Text(
                       "Meta atual",
                       style: GoogleFonts.robotoCondensed(
-                        fontSize: 19,
+                        fontSize: 16,
                         fontWeight: FontWeight.w500,
                         height: 19 / 16,
                         color: const Color(0xffdedede),
@@ -129,7 +130,7 @@ class ResumoSaldoWidget extends StatelessWidget {
                     Text(
                       "Definir meta",
                       style: GoogleFonts.robotoCondensed(
-                        fontSize: 23,
+                        fontSize: 20,
                         fontWeight: FontWeight.w500,
                         height: 23 / 20,
                         color: Colors.white,
@@ -149,7 +150,7 @@ class ResumoSaldoWidget extends StatelessWidget {
                 Text(
                   "Minhas contas e cartões",
                   style: GoogleFonts.robotoCondensed(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600,
                     color: Colors.white,
                     height: 21 / 18,
@@ -159,7 +160,7 @@ class ResumoSaldoWidget extends StatelessWidget {
                 Text(
                   ">>",
                   style: GoogleFonts.robotoCondensed(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600,
                     color: Colors.white,
                     height: 21 / 18,
@@ -181,6 +182,7 @@ class PassosWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       width: double.infinity,
       height: 170,
       decoration: const BoxDecoration(
@@ -207,7 +209,7 @@ class PassosWidget extends StatelessWidget {
                   Text(
                     "Primeiros passos",
                     style: GoogleFonts.robotoCondensed(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.w600,
                       color: Colors.white,
                       height: 21 / 18,
@@ -218,7 +220,7 @@ class PassosWidget extends StatelessWidget {
                   Text(
                     "1 de 6 tarefas concluídas",
                     style: GoogleFonts.robotoCondensed(
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.w400,
                       height: 19 / 16,
                       color: Colors.white,
@@ -255,7 +257,7 @@ class PassosWidget extends StatelessWidget {
             child: Text(
               "Continuar",
               style: GoogleFonts.robotoCondensed(
-                fontSize: 20,
+                fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -278,8 +280,8 @@ class AssuntosWidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 70,
-            height: 70,
+            width: 75,
+            height: 75,
             decoration: BoxDecoration(
               color: const Color(0xff505050),
               borderRadius: BorderRadius.circular(8),
@@ -310,24 +312,28 @@ class AssuntosWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Assuntos para aprender",
-            style: GoogleFonts.robotoCondensed(
-              fontSize: 22,
-              fontWeight: FontWeight.w600,
-              height: 21 / 18,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              "Assuntos para aprender",
+              style: GoogleFonts.robotoCondensed(
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+                height: 21 / 18,
+              ),
+              textAlign: TextAlign.left,
             ),
-            textAlign: TextAlign.left,
           ),
           const SizedBox(height: 15),
           SizedBox(
-            height: 95,
+            height: 110,
             child: ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               scrollDirection: Axis.horizontal,
               children: [
                 buildButton(
@@ -356,66 +362,6 @@ class AssuntosWidget extends StatelessWidget {
                   label: "Previdência",
                   iconName: "previdencia",
                 ),
-              ],
-            ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class SalaDoTesouro extends StatelessWidget {
-  const SalaDoTesouro({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 170,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Sala do tesouro",
-            style: GoogleFonts.robotoCondensed(
-              fontSize: 22,
-              fontWeight: FontWeight.w600,
-              height: 21 / 18,
-            ),
-            textAlign: TextAlign.left,
-          ),
-          const SizedBox(height: 15),
-          Container(
-            width: double.infinity,
-            height: 120,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.keyboard_arrow_up,
-                        color: Colors.black,
-                      ),
-                    ),
-                    Text(
-                      "Graninhas: 1",
-                      style: GoogleFonts.robotoCondensed(
-                        color: Colors.black,
-                        fontSize: 20,
-                      ),
-                    )
-                  ],
-                )
               ],
             ),
           )
