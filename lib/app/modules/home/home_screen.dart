@@ -1,3 +1,4 @@
+import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/execucao_trilha/execucao_trilha.dart';
 import 'package:caixa_hackaton_app/app/modules/lancamento/lancamento_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/contas_cartoes/contas_cartoes.dart';
@@ -40,6 +41,17 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Image.asset('assets/drawer.png'),
           ),
         ),
+        actions: [
+          GestureDetector(
+              onTap: () {
+                Get.to(() => ConquistasScreen());
+              },
+              child: Image.asset(
+                'assets/medal_4.png',
+                scale: 1.9,
+              )),
+          Container(width: 20),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(

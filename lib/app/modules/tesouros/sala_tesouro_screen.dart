@@ -1,7 +1,9 @@
+import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/home/home_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/lancamento/lancamento_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/tesouros/tesouro_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -44,6 +46,19 @@ class _SalaTesouroScreenState extends State<SalaTesouroScreen> {
               scale: 1.8,
             ),
           ),
+          actions: [
+            GestureDetector(
+                onTap: () {
+                  Get.to(
+                    () => const ConquistasScreen(),
+                  );
+                },
+                child: Image.asset(
+                  'assets/medal_4.png',
+                  scale: 1.9,
+                )),
+            Container(width: 20),
+          ],
           foregroundColor: Colors.black,
           forceMaterialTransparency: true,
         ),
@@ -214,7 +229,7 @@ class _BottomBarState extends State<BottomBar> {
   @override
   void initState() {
     if (mounted && widget.useAnimation) {
-      Future.delayed(const Duration(seconds: 1), () {
+      Future.delayed(const Duration(milliseconds: 500), () {
         _entrar();
       });
       // Future.delayed(const Duration(seconds: 5), () {

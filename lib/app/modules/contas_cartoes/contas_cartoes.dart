@@ -1,3 +1,4 @@
+import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -48,7 +49,14 @@ class _ContasCartoesScreenState extends State<ContasCartoesScreen> {
           child: Image.asset('assets/chevron_right.png'),
         ),
         actions: [
-          Image.asset('assets/medal.png'),
+          GestureDetector(
+              onTap: () {
+                Get.to(() => ConquistasScreen());
+              },
+              child: Image.asset(
+                'assets/medal_4.png',
+                scale: 1.9,
+              )),
           Container(width: 20),
         ],
       ),

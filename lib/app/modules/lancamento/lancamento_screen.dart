@@ -1,4 +1,5 @@
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -36,7 +37,14 @@ class _LancamentoScreenState extends State<LancamentoScreen> {
           child: Image.asset('assets/chevron_right.png'),
         ),
         actions: [
-          Image.asset('assets/medal.png'),
+          GestureDetector(
+              onTap: () {
+                Get.to(() => ConquistasScreen());
+              },
+              child: Image.asset(
+                'assets/medal_4.png',
+                scale: 1.9,
+              )),
           Container(width: 20),
         ],
       ),
@@ -77,9 +85,12 @@ class _LancamentoScreenState extends State<LancamentoScreen> {
             _textFieldComponent('Descrição'),
             _textFieldComponent('Valor'),
             _dropdownComponent('Tipo', ['Entrada', 'Saida']),
-            _dropdownComponent('Categoria', ['Games', 'Lazer', 'Comida', 'Transporte', 'Outros']),
-            _dropdownComponent('Pago com', ['Conta caixa xovem', 'Conta poupanca']),
-            _textFieldComponent('Data', suffixIconUrl: 'assets/calendar.png', isDate: true),
+            _dropdownComponent('Categoria',
+                ['Games', 'Lazer', 'Comida', 'Transporte', 'Outros']),
+            _dropdownComponent(
+                'Pago com', ['Conta caixa xovem', 'Conta poupanca']),
+            _textFieldComponent('Data',
+                suffixIconUrl: 'assets/calendar.png', isDate: true),
           ],
         ),
       ),
@@ -87,7 +98,8 @@ class _LancamentoScreenState extends State<LancamentoScreen> {
   }
 }
 
-Widget _textFieldComponent(String label, {String? suffixIconUrl, bool isDate = false}) {
+Widget _textFieldComponent(String label,
+    {String? suffixIconUrl, bool isDate = false}) {
   return Container(
     padding: const EdgeInsets.symmetric(horizontal: 8),
     margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 5),

@@ -1,3 +1,4 @@
+import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/contas_cartoes/contas_cartoes.dart';
 import 'package:caixa_hackaton_app/app/modules/execucao_trilha/execucao_trilha.dart';
 import 'package:flutter/material.dart';
@@ -25,10 +26,13 @@ class _TrilhasScreenState extends State<TrilhasScreen> {
         ),
         actions: [
           GestureDetector(
-            onTap: (){
-              Get.to(() => ContasCartoesScreen());
-            },
-              child: Image.asset('assets/medal.png')),
+              onTap: () {
+                Get.to(() => ConquistasScreen());
+              },
+              child: Image.asset(
+                'assets/medal_4.png',
+                scale: 1.9,
+              )),
           Container(width: 20),
         ],
       ),
@@ -42,7 +46,10 @@ class _TrilhasScreenState extends State<TrilhasScreen> {
                 Text(
                   'Aprendizado Financeiro',
                   style: GoogleFonts.robotoCondensed(
-                      fontSize: 24, fontWeight: FontWeight.w500, color: Colors.white, letterSpacing: -1),
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                      letterSpacing: -1),
                 ),
                 Container(height: 10),
                 trilhaCard(
@@ -107,12 +114,11 @@ Widget trilhaCard({
                       Text(
                         title,
                         style: GoogleFonts.robotoCondensed(
-                          height: 1,
-                          fontSize: 18,
-                          letterSpacing: -1,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white
-                        ),
+                            height: 1,
+                            fontSize: 18,
+                            letterSpacing: -1,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white),
                       ),
                       Container(
                         child: Text(
@@ -159,9 +165,7 @@ Widget trilhaCard({
                   ),
                 ),
                 onPressed: () {
-                  Get.to(
-                      ()=> ExecucaoTrilhaScreen()
-                  );
+                  Get.to(() => ExecucaoTrilhaScreen());
                 },
                 child: Text(
                   'Escolher',

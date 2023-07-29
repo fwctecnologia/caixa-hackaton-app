@@ -1,3 +1,4 @@
+import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -37,13 +38,16 @@ class _ExecucaoTrilhaScreenState extends State<ExecucaoTrilhaScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final currentPage = pageController.positions.isNotEmpty ? pageController.page?.toInt() : 0;
+    final currentPage =
+        pageController.positions.isNotEmpty ? pageController.page?.toInt() : 0;
     Widget _buildStepIndicator(int index, int currentPage) {
       return Expanded(
         child: Container(
           height: 4.5,
           decoration: BoxDecoration(
-            color: currentPage >= index ? const Color(0xFF55A0D6) : const Color(0xFFBEBEBE),
+            color: currentPage >= index
+                ? const Color(0xFF55A0D6)
+                : const Color(0xFFBEBEBE),
             borderRadius: BorderRadius.circular(12),
           ),
         ),
@@ -57,7 +61,10 @@ class _ExecucaoTrilhaScreenState extends State<ExecucaoTrilhaScreen> {
         title: Text(
           'Aprendizado Financeiro',
           style: GoogleFonts.robotoCondensed(
-              fontSize: 20, fontWeight: FontWeight.w500, color: Colors.white, letterSpacing: -1),
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+              color: Colors.white,
+              letterSpacing: -1),
         ),
         leading: GestureDetector(
           onTap: () {
@@ -66,7 +73,14 @@ class _ExecucaoTrilhaScreenState extends State<ExecucaoTrilhaScreen> {
           child: Image.asset('assets/chevron_right.png'),
         ),
         actions: [
-          Image.asset('assets/medal.png'),
+          GestureDetector(
+              onTap: () {
+                Get.to(() => ConquistasScreen());
+              },
+              child: Image.asset(
+                'assets/medal_4.png',
+                scale: 1.9,
+              )),
           Container(width: 20),
         ],
       ),
@@ -219,7 +233,8 @@ class StepOne extends StatelessWidget {
                 child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    text: 'A bolsa de valores e um lugar onde as pessoas compram e vendem ',
+                    text:
+                        'A bolsa de valores e um lugar onde as pessoas compram e vendem ',
                     style: GoogleFonts.robotoCondensed(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
@@ -308,7 +323,8 @@ class StepTwo extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                          text: 'mesmo que em uma escala pequena, e pode beneficiar do',
+                          text:
+                              'mesmo que em uma escala pequena, e pode beneficiar do',
                           style: GoogleFonts.robotoCondensed(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
@@ -389,7 +405,8 @@ class StepThree extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                          text: 'mas, tambem pode diminuir. Tem que ficar de olho.',
+                          text:
+                              'mas, tambem pode diminuir. Tem que ficar de olho.',
                           style: GoogleFonts.robotoCondensed(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
@@ -454,7 +471,8 @@ class StepFour extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                          text: 'Alguma das mais utilizadas estao no link no final do modulo.',
+                          text:
+                              'Alguma das mais utilizadas estao no link no final do modulo.',
                           style: GoogleFonts.robotoCondensed(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
@@ -519,7 +537,8 @@ class StepFive extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                          text: 'como suas acoes estao indo e estudar estrategias, para aumentar suas chances de ter '
+                          text:
+                              'como suas acoes estao indo e estudar estrategias, para aumentar suas chances de ter '
                               'lucro e ',
                           style: GoogleFonts.robotoCondensed(
                             color: Colors.white,
@@ -577,7 +596,8 @@ class StepSix extends StatelessWidget {
                 child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    text: 'Algumas empresas pagam uma parte do seu lucro aos acionistas, isso se chama ',
+                    text:
+                        'Algumas empresas pagam uma parte do seu lucro aos acionistas, isso se chama ',
                     style: GoogleFonts.robotoCondensed(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
@@ -669,7 +689,8 @@ class StepSeven extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                        text: 'como notícias sobre política ou o que acontece no mundo.\n',
+                        text:
+                            'como notícias sobre política ou o que acontece no mundo.\n',
                         style: GoogleFonts.robotoCondensed(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -726,7 +747,8 @@ class StepEight extends StatelessWidget {
                 child: RichText(
                   textAlign: TextAlign.center,
                   text: TextSpan(
-                    text: 'Os índices ajudam a entender se as ações  estão indo bem ou mal. Eles são como um',
+                    text:
+                        'Os índices ajudam a entender se as ações  estão indo bem ou mal. Eles são como um',
                     style: GoogleFonts.robotoCondensed(
                       color: Colors.white,
                       fontWeight: FontWeight.w500,
@@ -742,7 +764,8 @@ class StepEight extends StatelessWidget {
                         ),
                       ),
                       TextSpan(
-                          text: 'do que está acontecendo! \n\nVeja os links no final para mais informações',
+                          text:
+                              'do que está acontecendo! \n\nVeja os links no final para mais informações',
                           style: GoogleFonts.robotoCondensed(
                             color: Colors.white,
                             fontWeight: FontWeight.w500,
@@ -854,13 +877,15 @@ class StepTen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             CheckBoxOption(
-              title: "É o valor que os investidores pagam para comprar ações na bolsa",
+              title:
+                  "É o valor que os investidores pagam para comprar ações na bolsa",
               onTap: onTap,
               number: 0,
               checkedNumber: checkedNumber,
             ),
             CheckBoxOption(
-              title: "É uma parte do lucro de uma empresa que ela divide com seus investidores",
+              title:
+                  "É uma parte do lucro de uma empresa que ela divide com seus investidores",
               onTap: onTap,
               number: 1,
               checkedNumber: checkedNumber,
@@ -872,13 +897,15 @@ class StepTen extends StatelessWidget {
               checkedNumber: checkedNumber,
             ),
             CheckBoxOption(
-              title: "É o valor que se paga para a corretora por intermediar a venda das ações",
+              title:
+                  "É o valor que se paga para a corretora por intermediar a venda das ações",
               onTap: onTap,
               number: 3,
               checkedNumber: checkedNumber,
             ),
             CheckBoxOption(
-              title: "É o valor que o investidor fica devendo ao perder dinheiro na bolsa",
+              title:
+                  "É o valor que o investidor fica devendo ao perder dinheiro na bolsa",
               onTap: onTap,
               number: 4,
               checkedNumber: checkedNumber,
@@ -975,7 +1002,10 @@ class FinishStep extends StatelessWidget {
           children: [
             Text(
               "APROVADO",
-              style: GoogleFonts.robotoCondensed(fontSize: 32, fontWeight: FontWeight.w700, color: Colors.blue),
+              style: GoogleFonts.robotoCondensed(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.blue),
             ),
             Image.asset("assets/result.png"),
             Row(
@@ -983,17 +1013,22 @@ class FinishStep extends StatelessWidget {
               children: [
                 Text(
                   qtdAcertos.toString(),
-                  style: GoogleFonts.robotoCondensed(fontSize: 64, fontWeight: FontWeight.w700, color: Colors.blue),
+                  style: GoogleFonts.robotoCondensed(
+                      fontSize: 64,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.blue),
                 ),
                 Text(
                   " / 3",
-                  style: GoogleFonts.robotoCondensed(fontSize: 64, fontWeight: FontWeight.w700),
+                  style: GoogleFonts.robotoCondensed(
+                      fontSize: 64, fontWeight: FontWeight.w700),
                 ),
               ],
             ),
             Text(
               "Respostas corretas",
-              style: GoogleFonts.robotoCondensed(fontSize: 22, fontWeight: FontWeight.w700),
+              style: GoogleFonts.robotoCondensed(
+                  fontSize: 22, fontWeight: FontWeight.w700),
             ),
             Container(height: 60),
             SizedBox(
@@ -1054,9 +1089,13 @@ class _CheckBoxOptionState extends State<CheckBoxOption> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: widget.checkedNumber == widget.number ? Colors.white : const Color(0xffbebebe),
+            color: widget.checkedNumber == widget.number
+                ? Colors.white
+                : const Color(0xffbebebe),
           ),
-          color: widget.checkedNumber == widget.number ? Colors.white12 : Colors.transparent,
+          color: widget.checkedNumber == widget.number
+              ? Colors.white12
+              : Colors.transparent,
         ),
         child: Row(
           children: [
@@ -1074,7 +1113,9 @@ class _CheckBoxOptionState extends State<CheckBoxOption> {
                   style: GoogleFonts.robotoCondensed(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
-                    color: widget.checkedNumber == widget.number ? Colors.white : const Color(0xffbebebe),
+                    color: widget.checkedNumber == widget.number
+                        ? Colors.white
+                        : const Color(0xffbebebe),
                   ),
                   textAlign: TextAlign.left,
                 ),
