@@ -61,9 +61,8 @@ class _ContasCartoesScreenState extends State<ContasCartoesScreen> {
               'Minhas Contas',
               style: GoogleFonts.robotoCondensed(
                 fontSize: 24,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
                 color: Colors.white,
-                letterSpacing: -1,
               ),
             ),
             Container(height: 10),
@@ -77,9 +76,8 @@ class _ContasCartoesScreenState extends State<ContasCartoesScreen> {
               'Meus Cartoes',
               style: GoogleFonts.robotoCondensed(
                 fontSize: 24,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
                 color: Colors.white,
-                letterSpacing: -1,
               ),
             ),
             Container(height: 10),
@@ -109,7 +107,8 @@ Widget card(title, value, description) {
         Row(
           children: [
             Image.asset(
-              'assets/caixa.png',
+              'assets/x.png',
+              width: 50,
             ),
             Container(width: 10),
             Column(
@@ -119,18 +118,16 @@ Widget card(title, value, description) {
                   title,
                   style: GoogleFonts.robotoCondensed(
                     fontSize: 16,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     color: Colors.white,
-                    letterSpacing: -1,
                   ),
                 ),
                 Text(
                   'R\$ ${value}',
                   style: GoogleFonts.robotoCondensed(
                     fontSize: 20,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                     color: Colors.white,
-                    letterSpacing: -1,
                   ),
                 ),
               ],
@@ -145,9 +142,8 @@ Widget card(title, value, description) {
               description,
               style: GoogleFonts.robotoCondensed(
                 fontSize: 18,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
                 color: Colors.white,
-                letterSpacing: -1,
               ),
             ),
             Image.asset(

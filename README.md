@@ -1,16 +1,16 @@
-# caixa_hackaton_app
+# Hackathon CPBR15 - CAIXA & VISA
 
-A new Flutter project.
 
-## Getting Started
+![Blue APP](assets/1.png)
 
-This project is a starting point for a Flutter application.
+## Soluções do Blue
+Criamos o Blue, um aplicativo que será totalmente integrado ao atual app da Caixa Econômica, que atenderá o anseio por agilidade e dinamismo dos jovens
 
-A few resources to get you started if this is your first Flutter project:
+- Acesso facilitado a produtos Caixa, como contas, cartões e linhas de crédito
+- Integração com meios de pagamento, como o PIX e NFC
+- Definição de metas de orçamento e gestão de gastos completa
+- Mini-cursos práticos para aprender sobre finanças e desenvolver bons hábitos
+- Gameficação com personagens colecionáveis para motivar o jovem a poupar e aprender a investir
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Sobre Nós
+### A equipe da [FWC Tecnologia](https://fwctecnologia.com/) é especialista em desenvolvimento de aplicativos utilizando o framework Flutter e NodeJS, um dos mais populares do mercado.

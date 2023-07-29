@@ -1,6 +1,7 @@
-import 'package:caixa_hackaton_app/app/modules/categorizacao/categorizacao_screen.dart';
-import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
+import 'package:caixa_hackaton_app/app/modules/execucao_trilha/execucao_trilha.dart';
 import 'package:caixa_hackaton_app/app/modules/lancamento/lancamento_screen.dart';
+import 'package:caixa_hackaton_app/app/modules/contas_cartoes/contas_cartoes.dart';
+import 'package:caixa_hackaton_app/app/modules/tesouros/sala_tesouro_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,10 +17,22 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Container(
+        height: 130,
+        padding: const EdgeInsets.only(bottom: 30, top: 10),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30),
+            topRight: Radius.circular(30),
+          ),
+        ),
+        child: const BottomBar(useAnimation: true),
+      ),
       appBar: AppBar(
         forceMaterialTransparency: true,
         leading: GestureDetector(
-          onTap: (){
+          onTap: () {
             Get.to(() => LancamentoScreen());
           },
           child: Container(
@@ -28,29 +41,35 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 10,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Text(
-              "Olá, Xovem Novin",
-              style: GoogleFonts.robotoCondensed(
-                fontSize: 24,
-                fontWeight: FontWeight.w600,
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 10,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(
+                "Olá, Xovem Novin",
+                style: GoogleFonts.robotoCondensed(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 15),
-          const ResumoSaldoWidget(),
-          const SizedBox(height: 15),
-          const PassosWidget(),
-          const SizedBox(height: 15),
-          const AssuntosWidget(),
-        ],
+            const SizedBox(height: 15),
+            const ResumoSaldoWidget(),
+            const SizedBox(height: 15),
+            const InvestimentoWidget(),
+            const SizedBox(height: 15),
+            const PassosWidget(),
+            const SizedBox(height: 15),
+            const ConsorcioWidget(),
+            const SizedBox(height: 15),
+            const AssuntosWidget(),
+          ],
+        ),
       ),
     );
   }
@@ -96,35 +115,30 @@ class ResumoSaldoWidget extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    GestureDetector(
-                      onTap: () {
-                        Get.to(() => CategorizacaoScreen());
-                      },
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Saldo Geral",
-                            style: GoogleFonts.robotoCondensed(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              height: 19 / 16,
-                              color: const Color(0xffdedede),
-                            ),
-                            textAlign: TextAlign.left,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Saldo Geral",
+                          style: GoogleFonts.robotoCondensed(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            height: 19 / 16,
+                            color: const Color(0xffdedede),
                           ),
-                          Text(
-                            "R\$ 1.776,12",
-                            style: GoogleFonts.robotoCondensed(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                              height: 23 / 20,
-                              color: Colors.white,
-                            ),
-                            textAlign: TextAlign.left,
-                          )
-                        ],
-                      ),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "R\$ 1.776,12",
+                          style: GoogleFonts.robotoCondensed(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            height: 23 / 20,
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.left,
+                        )
+                      ],
                     ),
                   ],
                 ),
@@ -132,7 +146,7 @@ class ResumoSaldoWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Meta atual",
+                      "Meta do mês",
                       style: GoogleFonts.robotoCondensed(
                         fontSize: 16,
                         fontWeight: FontWeight.w500,
@@ -141,54 +155,176 @@ class ResumoSaldoWidget extends StatelessWidget {
                       ),
                       textAlign: TextAlign.left,
                     ),
-                    GestureDetector(
-                      onTap: (){
-                        Get.to(
-                          () => const ConquistasScreen(),
-                        );
-                      },
-                      child: Text(
-                        "Definir meta",
-                        style: GoogleFonts.robotoCondensed(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                          height: 23 / 20,
-                          color: Colors.white,
-                          decoration: TextDecoration.underline,
-                        ),
-                        textAlign: TextAlign.left,
+                    Text(
+                      "R\$ 3.000,00",
+                      style: GoogleFonts.robotoCondensed(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        height: 23 / 20,
+                        color: Colors.white,
                       ),
+                      textAlign: TextAlign.left,
                     )
                   ],
                 ),
               ],
             ),
             const SizedBox(height: 5),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return const ContasCartoesScreen();
+                }));
+              },
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Minhas contas e cartões",
+                    style: GoogleFonts.robotoCondensed(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                      height: 21 / 18,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    ">>",
+                    style: GoogleFonts.robotoCondensed(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                      height: 21 / 18,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class InvestimentoWidget extends StatelessWidget {
+  const InvestimentoWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20),
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        color: Color(0xFF505050),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 8,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  "Minhas contas e cartões",
-                  style: GoogleFonts.robotoCondensed(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                    height: 21 / 18,
-                  ),
-                  textAlign: TextAlign.left,
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Valor Investido",
+                          style: GoogleFonts.robotoCondensed(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            height: 19 / 16,
+                            color: const Color(0xffdedede),
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "R\$ 500,00",
+                          style: GoogleFonts.robotoCondensed(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500,
+                            height: 23 / 20,
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.left,
+                        )
+                      ],
+                    ),
+                  ],
                 ),
-                Text(
-                  ">>",
-                  style: GoogleFonts.robotoCondensed(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white,
-                    height: 21 / 18,
-                  ),
-                  textAlign: TextAlign.left,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      "Rendimentos do mês",
+                      style: GoogleFonts.robotoCondensed(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        height: 19 / 16,
+                        color: const Color(0xffdedede),
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                    Text(
+                      "+ R\$ 3,19",
+                      style: GoogleFonts.robotoCondensed(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        height: 23 / 20,
+                        color: Colors.green,
+                      ),
+                      textAlign: TextAlign.left,
+                    )
+                  ],
                 ),
               ],
+            ),
+            const SizedBox(height: 10),
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) {
+                  return const ContasCartoesScreen();
+                }));
+              },
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Meus investimentos e poupanças",
+                    style: GoogleFonts.robotoCondensed(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                      height: 21 / 18,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                  Text(
+                    ">>",
+                    style: GoogleFonts.robotoCondensed(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                      height: 21 / 18,
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
+                ],
+              ),
             )
           ],
         ),
@@ -297,36 +433,41 @@ class AssuntosWidget extends StatelessWidget {
     required String iconName,
     double scale = 1,
   }) {
-    return SizedBox(
-      child: Column(
-        children: [
-          Container(
-            width: 75,
-            height: 75,
-            decoration: BoxDecoration(
-              color: const Color(0xff505050),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Image.asset(
-                "assets/$iconName.png",
-                scale: scale,
+    return GestureDetector(
+      onTap: () {
+        Get.to(() => const ExecucaoTrilhaScreen());
+      },
+      child: SizedBox(
+        child: Column(
+          children: [
+            Container(
+              width: 75,
+              height: 75,
+              decoration: BoxDecoration(
+                color: const Color(0xff505050),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Image.asset(
+                  "assets/$iconName.png",
+                  scale: scale,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 5),
-          Text(
-            label,
-            style: GoogleFonts.robotoCondensed(
-              fontSize: 14,
-              fontWeight: FontWeight.w400,
-              height: 19 / 16,
-              color: Colors.white,
-            ),
-            textAlign: TextAlign.left,
-          )
-        ],
+            const SizedBox(height: 5),
+            Text(
+              label,
+              style: GoogleFonts.robotoCondensed(
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+                height: 19 / 16,
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.left,
+            )
+          ],
+        ),
       ),
     );
   }
@@ -386,6 +527,130 @@ class AssuntosWidget extends StatelessWidget {
               ],
             ),
           )
+        ],
+      ),
+    );
+  }
+}
+
+class ConsorcioWidget extends StatelessWidget {
+  const ConsorcioWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Text(
+              "Produtos que combinam com você",
+              style: GoogleFonts.robotoCondensed(
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+                height: 21 / 18,
+              ),
+              textAlign: TextAlign.left,
+            ),
+          ),
+          const SizedBox(height: 15),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            width: double.infinity,
+            decoration: const BoxDecoration(
+              color: Color(0xFF505050),
+              borderRadius: BorderRadius.all(
+                Radius.circular(8),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * .85,
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Consórcio fácil da Caixa",
+                                    style: GoogleFonts.robotoCondensed(
+                                      fontSize: 19,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.white,
+                                      height: 21 / 18,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                  const SizedBox(height: 5),
+                                  Text(
+                                    "Realize o sonho do carro novo pagando as menores parcelas",
+                                    style: GoogleFonts.robotoCondensed(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400,
+                                      height: 19 / 16,
+                                      color: Colors.white,
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 8),
+                              child: Image.asset(
+                                "assets/x.png",
+                                scale: 1.7,
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 10),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Conhecer agora",
+                              style: GoogleFonts.robotoCondensed(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                                height: 21 / 18,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                            Text(
+                              ">>  ",
+                              style: GoogleFonts.robotoCondensed(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                                color: Colors.white,
+                                height: 21 / 18,
+                              ),
+                              textAlign: TextAlign.left,
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
