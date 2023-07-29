@@ -1,5 +1,9 @@
+import 'package:caixa_hackaton_app/app/modules/home/home_screen.dart';
+import 'package:caixa_hackaton_app/app/modules/tesouros/tesouro_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rive/rive.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SalaTesouroScreen extends StatefulWidget {
   const SalaTesouroScreen({super.key});
@@ -13,35 +17,7 @@ class _SalaTesouroScreenState extends State<SalaTesouroScreen> {
     showDialog(
       context: context,
       builder: (_) {
-        return AlertDialog(
-          backgroundColor: Colors.white,
-          content: Container(
-            width: MediaQuery.of(context).size.width * 0.8,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(""),
-                    Text(
-                      "Detalhes",
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.close),
-                    )
-                  ],
-                )
-              ],
-            ),
-          ),
-        );
+        return const TesouroDialog();
       },
     );
   }
@@ -199,38 +175,141 @@ class _SalaTesouroScreenState extends State<SalaTesouroScreen> {
                 ),
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                CircleAvatar(
-                  backgroundColor: const Color(0xFF55A0D6),
-                  radius: 40,
-                  child: Image.asset(
-                    "assets/home.png",
-                    scale: 1.5,
-                  ),
-                ),
-                CircleAvatar(
-                  backgroundColor: const Color(0xFF55A0D6),
-                  radius: 40,
-                  child: Image.asset(
-                    "assets/add.png",
-                    scale: 1.5,
-                  ),
-                ),
-                CircleAvatar(
-                  backgroundColor: const Color(0xFF55A0D6),
-                  radius: 40,
-                  child: Image.asset(
-                    "assets/cart.png",
-                    scale: 1.5,
-                  ),
-                )
-              ],
-            )
+            const BottomBar()
           ],
         ),
       ),
+    );
+  }
+}
+
+class BottomBar extends StatefulWidget {
+  final bool useAnimation;
+  const BottomBar({
+    super.key,
+    this.useAnimation = false,
+  });
+
+  @override
+  State<BottomBar> createState() => _BottomBarState();
+}
+
+class _BottomBarState extends State<BottomBar> {
+  SMITrigger? _entrarTrigger;
+
+  SMITrigger? _sairTrigger;
+
+  void _onRiveInit(Artboard artboard) {
+    final controller = StateMachineController.fromArtboard(artboard, 'Estado');
+    artboard.addController(controller!);
+    _entrarTrigger = controller.findInput<bool>('Entrar') as SMITrigger;
+    _sairTrigger = controller.findInput<bool>('Sair') as SMITrigger;
+  }
+
+  void _entrar() => _entrarTrigger?.fire();
+
+  void _sair() => _sairTrigger?.fire();
+
+  @override
+  void initState() {
+    if (mounted && widget.useAnimation) {
+      Future.delayed(const Duration(seconds: 1), () {
+        _entrar();
+      });
+      // Future.delayed(const Duration(seconds: 5), () {
+      //   _sair();
+      // });
+    }
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const HomeScreen(),
+              ),
+            );
+          },
+          child: CircleAvatar(
+            backgroundColor: const Color(0xFF55A0D6),
+            radius: 40,
+            child: Image.asset(
+              "assets/home.png",
+              scale: 1.5,
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            // TODO: nova despesa
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const HomeScreen(),
+              ),
+            );
+          },
+          child: CircleAvatar(
+            backgroundColor: const Color(0xFF55A0D6),
+            radius: 40,
+            child: Image.asset(
+              "assets/add.png",
+              scale: 1.5,
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            // TODO: despesas
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const HomeScreen(),
+              ),
+            );
+          },
+          child: widget.useAnimation
+              ? GestureDetector(
+                  onTap: () async {
+                    _sair();
+                    await Future.delayed(const Duration(milliseconds: 1300));
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const SalaTesouroScreen(),
+                      ),
+                    );
+                  },
+                  child: SizedBox(
+                    width: 110,
+                    child: RiveAnimation.asset(
+                      'assets/new_file_1.riv',
+                      artboard: "Graninha",
+                      onInit: _onRiveInit,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                )
+              : GestureDetector(
+                  onTap: () async {
+                    final Uri _url = Uri.parse(
+                        'https://vaidevisa.visa.com.br/vdv/beneficios/busca');
+                    await launchUrl(_url);
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: const Color(0xFF55A0D6),
+                    radius: 40,
+                    child: Image.asset(
+                      "assets/cart.png",
+                      scale: 1.5,
+                    ),
+                  ),
+                ),
+        )
+      ],
     );
   }
 }
