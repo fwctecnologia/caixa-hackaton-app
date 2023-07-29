@@ -69,7 +69,7 @@ class _InitialScreenState extends State<InitialScreen> {
               Container(height: 20),
               GestureDetector(
                 onTap: () {
-                  Get.to(() => TrilhasScreen());
+                  Get.to(() => AuthScreen());
                 },
                 child: Text(
                   'Fazer Login',

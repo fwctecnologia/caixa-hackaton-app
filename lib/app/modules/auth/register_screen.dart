@@ -1,4 +1,5 @@
 import 'package:caixa_hackaton_app/app/model/usuario.dart';
+import 'package:caixa_hackaton_app/app/modules/completar_cadastro/completar_cadastro_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -123,7 +124,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       foregroundColor: Colors.white,
                     ),
                     onPressed: () async {
-                      Get.to(() => const HomeScreen());
+                      Get.to(() => const CompletarCadastroScreen());
                     },
                     child: Text(
                       'Criar conta',

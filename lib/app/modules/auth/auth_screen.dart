@@ -19,7 +19,7 @@ class _AuthScreenState extends State<AuthScreen> {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(25.0),
-            child:SingleChildScrollView(
+            child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,7 +32,10 @@ class _AuthScreenState extends State<AuthScreen> {
                   Text(
                     'Escolha como criar sua conta!',
                     style: GoogleFonts.robotoCondensed(
-                        height: 0.8, fontWeight: FontWeight.w700, fontSize: 24, color: Colors.white),
+                        height: 0.8,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 24,
+                        color: Colors.white),
                   ),
                   Text(
                     'Caixa JOVEM',

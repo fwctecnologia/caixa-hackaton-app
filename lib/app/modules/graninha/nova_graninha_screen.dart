@@ -1,5 +1,7 @@
+import 'package:caixa_hackaton_app/app/modules/home/home_screen.dart';
 import 'package:caixa_hackaton_app/app/modules/tesouros/sala_tesouro_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive/rive.dart';
 
@@ -166,7 +168,7 @@ class _NovaGraninhaScreenState extends State<NovaGraninhaScreen> {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pop(context);
+                          Get.to(() => HomeScreen());
                         },
                         child: Text(
                           "Ok",
