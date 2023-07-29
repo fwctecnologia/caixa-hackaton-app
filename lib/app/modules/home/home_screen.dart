@@ -1,4 +1,5 @@
 import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
+import 'package:caixa_hackaton_app/app/modules/lancamento/lancamento_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,9 +17,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         forceMaterialTransparency: true,
-        leading: Container(
-          padding: const EdgeInsets.only(left: 20),
-          child: Image.asset('assets/drawer.png'),
+        leading: GestureDetector(
+          onTap: (){
+            Get.to(() => LancamentoScreen());
+          },
+          child: Container(
+            padding: const EdgeInsets.only(left: 20),
+            child: Image.asset('assets/drawer.png'),
+          ),
         ),
       ),
       body: Column(
