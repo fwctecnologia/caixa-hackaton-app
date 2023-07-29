@@ -1,4 +1,5 @@
 import 'package:caixa_hackaton_app/app/model/usuario.dart';
+import 'package:caixa_hackaton_app/app/modules/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -35,9 +36,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 Text(
                   'Crie sua conta!',
                   style: GoogleFonts.robotoCondensed(
-                      height: 0.8, fontWeight: FontWeight.w700, fontSize: 24, color: Colors.white),
+                      height: 0.8,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 24,
+                      color: Colors.white),
                 ),
-                Container(height:20),
+                Container(height: 20),
                 TextField(
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
@@ -48,15 +52,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       borderSide: BorderSide.none,
                     ),
                     hintText: 'Digite seu e-mail',
-                    hintStyle:
-                        GoogleFonts.robotoCondensed(fontWeight: FontWeight.w700, fontSize: 18, color: Color(0XFFBEBEBE)),
+                    hintStyle: GoogleFonts.robotoCondensed(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                        color: Color(0XFFBEBEBE)),
                     prefixIcon: Image.asset("assets/mail.png"),
                     suffixIcon: Container(width: 20),
                     isDense: true,
-                    prefixIconConstraints: BoxConstraints(
-                        minWidth:65,
-                        maxHeight: 35
-                    ),
+                    prefixIconConstraints:
+                        BoxConstraints(minWidth: 65, maxHeight: 35),
                     fillColor: Color(0xFF505050),
                     filled: true,
                   ),
@@ -73,11 +77,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                     hintText: 'Escolha uma senha',
                     isDense: true,
-                    prefixIconConstraints: BoxConstraints(
-                      minWidth:65,
-                      maxHeight: 35
-                    ),                    hintStyle:
-                        GoogleFonts.robotoCondensed(fontWeight: FontWeight.w700, fontSize: 18, color: Color(0XFFBEBEBE)),
+                    prefixIconConstraints:
+                        BoxConstraints(minWidth: 65, maxHeight: 35),
+                    hintStyle: GoogleFonts.robotoCondensed(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                        color: Color(0XFFBEBEBE)),
                     prefixIcon: Image.asset("assets/lock.png"),
                     suffixIcon: Container(width: 20),
                     fillColor: Color(0xFF505050),
@@ -95,14 +100,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       borderSide: BorderSide.none,
                     ),
                     hintText: 'Repita a senha',
-                    hintStyle:
-                        GoogleFonts.robotoCondensed(fontWeight: FontWeight.w700, fontSize: 18, color: Color(0XFFBEBEBE)),
+                    hintStyle: GoogleFonts.robotoCondensed(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 18,
+                        color: Color(0XFFBEBEBE)),
                     prefixIcon: Image.asset("assets/lock.png"),
-                    suffixIcon: Container(width: 20), isDense: true,
-                    prefixIconConstraints: BoxConstraints(
-                        minWidth:65,
-                        maxHeight: 35
-                    ),
+                    suffixIcon: Container(width: 20),
+                    isDense: true,
+                    prefixIconConstraints:
+                        BoxConstraints(minWidth: 65, maxHeight: 35),
                     fillColor: Color(0xFF505050),
                     filled: true,
                   ),
@@ -117,7 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       foregroundColor: Colors.white,
                     ),
                     onPressed: () async {
-                      Get.to(() => AuthScreen());
+                      Get.to(() => const HomeScreen());
                     },
                     child: Text(
                       'Criar conta',

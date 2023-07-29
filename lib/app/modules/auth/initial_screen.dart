@@ -41,7 +41,7 @@ class _InitialScreenState extends State<InitialScreen> {
                   textAlign: TextAlign.center,
                   style: GoogleFonts.robotoCondensed(
                     fontSize: 18,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
