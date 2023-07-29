@@ -45,6 +45,7 @@ class _NovaGraninhaScreenState extends State<NovaGraninhaScreen> {
           ),
         ),
         leading: Container(),
+        centerTitle: true,
         forceMaterialTransparency: true,
       ),
       // floatingActionButton: FloatingActionButton(
@@ -160,7 +161,7 @@ class _NovaGraninhaScreenState extends State<NovaGraninhaScreen> {
                     children: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(330, 50),
+                          fixedSize: const Size(320, 50),
                           backgroundColor: const Color(0xff55A0D6),
                           foregroundColor: Colors.white,
                           shape: RoundedRectangleBorder(

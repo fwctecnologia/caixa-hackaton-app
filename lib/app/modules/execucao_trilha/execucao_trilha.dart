@@ -1,9 +1,10 @@
 import 'package:caixa_hackaton_app/app/modules/conquistas/conquistas_screen.dart';
+import 'package:caixa_hackaton_app/app/modules/graninha/nova_graninha_screen.dart';
+import 'package:caixa_hackaton_app/app/modules/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../auth/auth_screen.dart';
 
 class ExecucaoTrilhaScreen extends StatefulWidget {
   const ExecucaoTrilhaScreen({super.key});
@@ -1040,7 +1041,17 @@ class FinishStep extends StatelessWidget {
                   foregroundColor: Colors.white,
                 ),
                 onPressed: () async {
-                  Get.to(() => AuthScreen());
+                  await Get.to(() => NovaGraninhaScreen());
+                  Get.showSnackbar(
+                    const GetSnackBar(
+                      message: 'Fim da trilha :)',
+                      duration: Duration(seconds: 2),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
+                  await Get.to(() => HomeScreen());
+
+
                 },
                 child: Text(
                   'Resgatar Premio',
