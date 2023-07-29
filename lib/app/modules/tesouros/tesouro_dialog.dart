@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TesouroDialog extends StatefulWidget {
   const TesouroDialog({super.key});
@@ -136,6 +137,9 @@ class _TesouroDialogState extends State<TesouroDialog> {
                   ),
                   onPressed: () {
                     Navigator.pop(context);
+                    final Uri _url = Uri.parse(
+                        'https://vaidevisa.visa.com.br/vdv/beneficios/busca');
+                    launchUrl(_url);
                   },
                   child: Text(
                     "Trocar por Pontos Visa",
