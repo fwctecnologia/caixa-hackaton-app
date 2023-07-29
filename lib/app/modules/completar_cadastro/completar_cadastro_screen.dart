@@ -11,19 +11,7 @@ class CompletarCadastroScreen extends StatefulWidget {
 
 class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
   final pageController = PageController();
-
-  Widget _buildStepIndicator(int index, int currentPage) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.14,
-      height: 4.5,
-      decoration: BoxDecoration(
-        color: currentPage >= index
-            ? const Color(0xFF55A0D6)
-            : const Color(0xFFBEBEBE),
-        borderRadius: BorderRadius.circular(12),
-      ),
-    );
-  }
+  int totalAcertos = 0;
 
   @override
   void initState() {
@@ -51,6 +39,19 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
   Widget build(BuildContext context) {
     final currentPage =
         pageController.positions.isNotEmpty ? pageController.page?.toInt() : 0;
+
+    Widget _buildStepIndicator(int index, int currentPage) {
+      return Container(
+        width: MediaQuery.of(context).size.width * 0.14,
+        height: 4.5,
+        decoration: BoxDecoration(
+          color: currentPage >= index
+              ? const Color(0xFF55A0D6)
+              : const Color(0xFFBEBEBE),
+          borderRadius: BorderRadius.circular(12),
+        ),
+      );
+    }
 
     return Scaffold(
       body: SafeArea(
@@ -91,7 +92,7 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
                       color: Color(0xFF55A0D6),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 24),
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -105,7 +106,7 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
                             ),
                             textAlign: TextAlign.left,
                           ),
-                          Icon(Icons.arrow_forward)
+                          const Icon(Icons.arrow_forward)
                         ],
                       ),
                     )),
@@ -134,7 +135,7 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
                       color: Color(0xFF55A0D6),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 24),
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,7 +149,7 @@ class _CompletarCadastroScreenState extends State<CompletarCadastroScreen> {
                             ),
                             textAlign: TextAlign.left,
                           ),
-                          Icon(Icons.arrow_forward)
+                          const Icon(Icons.arrow_forward)
                         ],
                       ),
                     )),
@@ -184,7 +185,7 @@ class StepOne extends StatelessWidget {
             style: GoogleFonts.robotoCondensed(
               fontSize: 26,
               fontWeight: FontWeight.w500,
-              color: Color(0xffbebebe),
+              color: const Color(0xffbebebe),
               height: 28 / 24,
             ),
             decoration: InputDecoration(
@@ -193,7 +194,7 @@ class StepOne extends StatelessWidget {
                 hintStyle: GoogleFonts.robotoCondensed(
                   fontSize: 26,
                   fontWeight: FontWeight.w400,
-                  color: Color(0xffbebebe),
+                  color: const Color(0xffbebebe),
                   height: 28 / 24,
                 )),
           ),
@@ -227,7 +228,7 @@ class StepTwo extends StatelessWidget {
             style: GoogleFonts.robotoCondensed(
               fontSize: 26,
               fontWeight: FontWeight.w500,
-              color: Color(0xffbebebe),
+              color: const Color(0xffbebebe),
               height: 28 / 24,
             ),
             decoration: InputDecoration(
@@ -236,7 +237,7 @@ class StepTwo extends StatelessWidget {
                 hintStyle: GoogleFonts.robotoCondensed(
                   fontSize: 26,
                   fontWeight: FontWeight.w300,
-                  color: Color(0xffbebebe),
+                  color: const Color(0xffbebebe),
                   height: 28 / 24,
                 )),
           ),
@@ -253,7 +254,7 @@ class StepThree extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -266,7 +267,7 @@ class StepThree extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               "Selecione pelo menos uma das opções",
               style: GoogleFonts.robotoCondensed(
@@ -276,18 +277,18 @@ class StepThree extends StatelessWidget {
               ),
               textAlign: TextAlign.left,
             ),
-            SizedBox(height: 20),
-            CheckBoxOption(
+            const SizedBox(height: 20),
+            const CheckBoxOption(
               title:
                   "Quero aprender a organizar minhas finanças para ficar mais tranquilo com o dinheiro",
             ),
-            CheckBoxOption(
+            const CheckBoxOption(
               title: "Tenho um objetivo financeiro. (Comprar um carro por ex.)",
             ),
-            CheckBoxOption(
+            const CheckBoxOption(
               title: "Quero aprender a investir e construir riqueza",
             ),
-            CheckBoxOption(
+            const CheckBoxOption(
               title: "Quero me livrar de uma dívida ou evitar o endividamento",
             ),
           ],
@@ -304,7 +305,7 @@ class StepFour extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -317,7 +318,7 @@ class StepFour extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               "Se ainda não usa nenhum, pode passar",
               style: GoogleFonts.robotoCondensed(
@@ -327,13 +328,13 @@ class StepFour extends StatelessWidget {
               ),
               textAlign: TextAlign.left,
             ),
-            SizedBox(height: 20),
-            CheckBoxOption(title: "Cartão de crédito"),
-            CheckBoxOption(title: "Conta corrente"),
-            CheckBoxOption(title: "Pix"),
-            CheckBoxOption(title: "Pagamento por aproximação"),
-            CheckBoxOption(title: "Google Wallet ou Apple Pay"),
-            CheckBoxOption(title: "Linhas de crédito"),
+            const SizedBox(height: 20),
+            const CheckBoxOption(title: "Cartão de crédito"),
+            const CheckBoxOption(title: "Conta corrente"),
+            const CheckBoxOption(title: "Pix"),
+            const CheckBoxOption(title: "Pagamento por aproximação"),
+            const CheckBoxOption(title: "Google Wallet ou Apple Pay"),
+            const CheckBoxOption(title: "Linhas de crédito"),
           ],
         ),
       ),
@@ -348,7 +349,7 @@ class StepFive extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -361,7 +362,7 @@ class StepFive extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               "Selecione todos os que você se interessa",
               style: GoogleFonts.robotoCondensed(
@@ -371,13 +372,13 @@ class StepFive extends StatelessWidget {
               ),
               textAlign: TextAlign.left,
             ),
-            SizedBox(height: 20),
-            CheckBoxOption(title: "Cartão de crédito"),
-            CheckBoxOption(title: "Conta corrente"),
-            CheckBoxOption(title: "Pix"),
-            CheckBoxOption(title: "Pagamento por aproximação"),
-            CheckBoxOption(title: "Google Wallet ou Apple Pay"),
-            CheckBoxOption(title: "Linhas de crédito"),
+            const SizedBox(height: 20),
+            const CheckBoxOption(title: "Cartão de crédito"),
+            const CheckBoxOption(title: "Conta corrente"),
+            const CheckBoxOption(title: "Pix"),
+            const CheckBoxOption(title: "Pagamento por aproximação"),
+            const CheckBoxOption(title: "Google Wallet ou Apple Pay"),
+            const CheckBoxOption(title: "Linhas de crédito"),
           ],
         ),
       ),
@@ -495,3 +496,4 @@ class _CheckBoxOptionState extends State<CheckBoxOption> {
     );
   }
 }
+
