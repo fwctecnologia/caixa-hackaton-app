@@ -1,3 +1,4 @@
+import 'package:caixa_hackaton_app/app/modules/contas_cartoes/contas_cartoes.dart';
 import 'package:caixa_hackaton_app/app/modules/execucao_trilha/execucao_trilha.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,11 @@ class _TrilhasScreenState extends State<TrilhasScreen> {
         forceMaterialTransparency: true,
         leading: Image.asset('assets/chevron_right.png'),
         actions: [
-          Image.asset('assets/medal.png'),
+          GestureDetector(
+            onTap: (){
+              Get.to(() => ContasCartoesScreen());
+            },
+              child: Image.asset('assets/medal.png')),
           Container(width: 20),
         ],
       ),
